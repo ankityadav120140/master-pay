@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_qr_reader/flutter_qr_reader.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:master_pay/page/qr_reader.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:upi_india/upi_india.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -269,6 +270,9 @@ class _HomePageState extends State<HomePage> {
               children: [
                 TextButton(
                   onPressed: () async {
+                    // final photo = await ImagePicker()
+                    //     .pickImage(source: ImageSource.camera);
+                    await Permission.camera.request();
                     openScanUI(context);
                   },
                   child: Container(
